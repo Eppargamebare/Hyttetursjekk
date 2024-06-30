@@ -2,8 +2,8 @@
 /* General Styles */
 body {
     font-family: Arial, sans-serif;
-    background: #1a1a1a;
-    color: #f0f0f0;
+    background: #0d0d0d;
+    color: #e6e6e6;
     margin: 0;
     padding: 0;
 }
@@ -25,24 +25,24 @@ h1 {
 }
 
 .login-box {
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(0, 0, 0, 0.8);
     padding: 20px;
     border-radius: 10px;
     text-align: center;
 }
 
 .login-box .logo {
-    width: 150px;
+    width: 200px;
     margin-bottom: 20px;
 }
 
-.login-box input {
+.login-box input, .login-box select {
     width: 100%;
     padding: 10px;
     margin: 10px 0;
     border: 1px solid #ffcc00;
     border-radius: 5px;
-    background: #333;
+    background: #1a1a1a;
     color: #ffcc00;
 }
 
@@ -94,6 +94,10 @@ td.editable {
     cursor: pointer;
 }
 
+td.available {
+    background-color: #00cc00;
+}
+
 /* Background Image */
 body::before {
     content: '';
@@ -106,5 +110,4 @@ body::before {
     background-size: cover;
     background-position: center;
     z-index: -1;
-    opacity: 0.5;
-}
+    opacity: 0.4;
