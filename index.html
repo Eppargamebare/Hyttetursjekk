@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Helgetur Tilgjengelighet</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-box">
+            <img src="logo.png" alt="Eppargamesbare Logo" class="logo">
+            <form>
+                <select required>
+                    <option value="" disabled selected>Velg brukernavn</option>
+                    <option value="tom">Tom</option>
+                    <option value="haukur">Haukur</option>
+                    <option value="mats">Mats</option>
+                    <option value="tommy">Tommy</option>
+                </select>
+                <input type="password" placeholder="Passord" required>
+                <button type="submit">Logg inn</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="content-container">
+        <h1>Helgetur Tilgjengelighet</h1>
+        <table>
+            <tr>
+                <th>Helg</th>
+                <th>Tom</th>
+                <th>Haukur</th>
+                <th>Mats</th>
+                <th>Tommy</th>
+            </tr>
+            <tr>
+                <td>2024-07-06 til 2024-07-07</td>
+                <td class="editable"></td>
+                <td class="editable"></td>
+                <td class="editable"></td>
+                <td class="editable"></td>
+            </tr>
+            <!-- Add more rows as needed -->
+        </table>
+    </div>
+
+    <script>
+        document.querySelector('form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            // User login data
+            const users = ['tom', 'haukur', 'mats', 'tommy'];
+            const selectedUser = event.target[0].value;
+            const password = event.target[1].value;
+
+            if (users.includes(selectedUser) && password === 'Eppar') {
+                document.querySelector('.login-container').style.display = 'none';
+                document.querySelector('.content-container').style.display = 'block';
+            } else {
+                alert('Ugyldig brukernavn eller passord');
+            }
+        });
+
+        document.querySelectorAll('.editable').forEach(cell => {
+            cell.addEventListener('click', () => {
+                const input = document.createElement('input');
+                input.type = 'text';
+                input.value = cell.innerText;
+                cell.innerText = '';
+                cell.appendChild(input);
+                input.focus();
+                input.addEventListener('blur', () => {
+                    cell.innerText = input.value;
+                });
+            });
+        });
+    </script>
+</body>
+</html>
